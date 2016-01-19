@@ -9,14 +9,14 @@
     <h:body>
         <h:form>
             <h1><h:outputText value="Lista de Candidatos"/></h1>
-            <p:commandLink value="Adicionar Candidato" action="#{candidatoMB.inserir()}"/>
+            <p:commandButton value="Adicionar Candidato" action="#{CandidatoMB.inserir()}"/>
             <br/><br/>
             
-            <p:dataTable id="dataTableCandidato" value="#{candidatoMB.listar()}"
+            <p:dataTable id="dataTableCandidato" value="#{CandidatoMB.listar()}"
                          var="item" 
                          paginator="true" rows="3" 
                          paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         emptyMessage="Nenhum registro encontrado">
+                         emptyMessage="Nenhum registro encontrado!">
                 <p:column headerText="Código da Vaga:">
                     <h:outputText value="#{item.id}"/>
                 </p:column>
@@ -34,9 +34,9 @@
                 </p:column>
                 
                 <p:column headerText="Ação">
-                    <p:commandLink value="Editar" action="#{candidatoMB.alterar(item)}"/>
+                    <p:commandLink value="Editar" action="#{CandidatoMB.alterar(item)}"/>
                     <h:outputText value=" | "/>
-                    <p:commandLink value="Excluir" action="#{candidatoMB.apagar(item)}"
+                    <p:commandLink value="Excluir" action="#{CandidatoMB.apagar(item)}"
                                    update="dataTableCandidato"
                                    onstart="return confirm('Deseja remover o Candidato?')"/><br/><br/><br/>
                 </p:column>

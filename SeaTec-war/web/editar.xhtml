@@ -10,22 +10,22 @@
         <h:form>
             <h1><h:outputText value="Editar Ordem de Serviço"/></h1>
             <p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
-            <h:inputHidden id="codigo" value="#{candidatoMB.candidato.id}"/>
+            <h:inputHidden id="codigo" value="#{CandidatoMB.candidato.id}"/>
             <p:panelGrid columns="2" >
                 <p:outputLabel value="Nome:" for="nome"/>
-                <p:inputText id="nome" value="#{candidatoMB.candidato.nome}" title="Nome"
+                <p:inputText id="nome" value="#{CandidatoMB.candidato.nome}" title="Nome"
                              required="true" requiredMessage="O Nome é obrigatório!"/>
 
                 <p:outputLabel value="Idade:" for="idade"/>
-                <p:inputText id="idade" value="#{candidatoMB.candidato.idade}" title="Idade"
+                <p:inputText id="idade" value="#{CandidatoMB.candidato.idade}" title="Idade"
                              required="true" requiredMessage="A Idade é obrigatória!"/>
 
                 <p:outputLabel value="Cidade:" for="cidade"/>
-                <p:inputText id="cidade" value="#{candidatoMB.candidato.cidade}" title="Cidade"
+                <p:inputText id="cidade" value="#{CandidatoMB.candidato.cidade}" title="Cidade"
                              required="true" requiredMessage="A Cidade é obrigatória!"/>
 
             </p:panelGrid>
-            <p:commandButton value="Salvar" action="#{candidatoMB.salvar(novo)}"/> ||
+            <p:commandButton value="Salvar" action="#{CandidatoMB.salvar(novo)}"/> ||
             <p:commandButton value="Cancela" action="index.xhtml"/>
         </h:form>
     </h:body>

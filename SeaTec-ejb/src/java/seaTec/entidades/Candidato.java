@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,22 +25,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Candidato implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    //@NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
     @Column(name = "codVaga")
     private Integer id;
     
-    //@NotNull
+    @NotNull
     @Column(name = "tx_nome")
     @Size(max = 100)
     private String nome;
     
-    //@NotNull
+    @NotNull
     @Column(name = "nr_idade")
     @Size(max = 11)
     private int idade;
     
-    //@NotNull
+    @NotNull
     @Column(name = "tx_cidade")
     private String cidade;
 
