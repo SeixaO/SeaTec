@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Sea Tecnologia</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            
+            <h1><h:outputText value="Adicionar Candidato"/></h1>
+            <p:growl id="mensagem"/>
+
+            <p:panelGrid columns="2" >
+                <p:outputLabel value="Nome:" for="nome"/>
+                <p:inputText id="nome" value="#{candidatoMB.candidato.nome}" title="Nome"
+                             required="true" requiredMessage="O Nome é obrigatório!"/>
+
+                <p:outputLabel value="Idade:" for="idade"/>
+                <p:inputText id="idade" value="#{candidatoMB.candidato.idade}" title="Idade"
+                             required="true" requiredMessage="A Idade é obrigatória!"/>
+
+                <p:outputLabel value="Cidade:" for="cidade"/>
+                <p:inputText id="cidade" value="#{candidatoMB.candidato.cidade}" title="Cidade"
+                             required="true" requiredMessage="A Cidade é obrigatória!"/>
+
+            </p:panelGrid>
+            <p:commandButton value="Salvar" action="#{candidatoMB.salvar(novo)}" update="mensagem"/> || 
+            <p:commandButton value="Cancela" action="index.xhtml"/>
+        </h:form>
+    </h:body>
+</html>

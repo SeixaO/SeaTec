@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Sea Tecnologia</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1><h:outputText value="Lista de Candidatos"/></h1>
+            <p:commandLink value="Adicionar Candidato" action="#{candidatoMB.inserir()}"/>
+            <br/><br/>
+            
+            <p:dataTable id="dataTableCandidato" value="#{candidatoMB.listar()}"
+                         var="item" 
+                         paginator="true" rows="3" 
+                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         emptyMessage="Nenhum registro encontrado">
+                <p:column headerText="Código da Vaga:">
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+
+                <p:column headerText="Nome">
+                    <h:outputText value="#{item.nome}"/>
+                </p:column>
+                
+                <p:column headerText="Idade">
+                    <h:outputText value="#{item.idade}"/>
+                </p:column>
+
+                <p:column headerText="Cidade">
+                    <h:outputText value="#{item.cidade}"/>
+                </p:column>
+                
+                <p:column headerText="Ação">
+                    <p:commandLink value="Editar" action="#{candidatoMB.alterar(item)}"/>
+                    <h:outputText value=" | "/>
+                    <p:commandLink value="Excluir" action="#{candidatoMB.apagar(item)}"
+                                   update="dataTableCandidato"
+                                   onstart="return confirm('Deseja remover o Candidato?')"/><br/><br/><br/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
